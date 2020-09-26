@@ -1,5 +1,7 @@
 import 'package:dcpedia/all_fighters.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class BioFighter extends StatelessWidget {
   String urlBatman =
@@ -9,50 +11,28 @@ class BioFighter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.directions_walk,
-          size: 40,
-        ),
-        title: Text(
-          'DCpedia',
-          style: TextStyle(
-            fontSize: 30,
-            color: Colors.amber[50],
-          ),
-        ),
-        backgroundColor: Colors.black38,
-      ),
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(0.0, 0.0),
-                end: Alignment(0.6, 0.9),
-                colors: [
-                  Colors.blueGrey[900],
-                  Colors.grey[900],
-                ],
-              ),
-            ),
-          ),
-          Column(
-            children: [
-              Expanded(child: Container()),
-              dcbio(),
-              Expanded(child: Container()),
-              Text(
-                'Mas Superheroes',
-                style: TextStyle(
-                  fontSize: 29,
-                  color: Color.fromRGBO(220, 229, 227, 0.9),
+          fondoMetas(),
+          SafeArea(
+            child: Column(
+              children: [
+                _fadeText(),
+                Expanded(child: Container()),
+                dcbio(),
+                Expanded(child: Container()),
+                Text(
+                  'Más Superheroes',
+                  style: GoogleFonts.rubik(
+                    fontSize: 29,
+                    color: Color.fromRGBO(220, 229, 227, 0.9),
+                  ),
                 ),
-              ),
-              Expanded(child: Container()),
-              listDCHeroes(context),
-              Expanded(child: Container()),
-            ],
+                Expanded(child: Container()),
+                listDCHeroes(context),
+                Expanded(child: Container()),
+              ],
+            ),
           )
         ],
       ),
@@ -81,10 +61,6 @@ class BioFighter extends StatelessWidget {
                 ),
               ),
             ),
-            //Image(
-            //  width: 350,
-            //  image: NetworkImage(urlBatman),
-            //),
             Positioned(
               top: 160,
               left: 10,
@@ -101,7 +77,7 @@ class BioFighter extends StatelessWidget {
                     Center(
                       child: Text(
                         "Batman",
-                        style: TextStyle(
+                        style: GoogleFonts.montserratAlternates(
                           fontSize: 28,
                           color: Colors.yellow[700],
                         ),
@@ -199,7 +175,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Superman",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -225,7 +201,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Wonder Woman",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -250,7 +226,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Flash",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -275,7 +251,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Acuaman",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -301,7 +277,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Cyborg",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -327,7 +303,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Green Lantern",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -353,7 +329,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Nightwing",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -379,7 +355,7 @@ class BioFighter extends StatelessWidget {
                 ),
                 child: Text(
                   "Green Arrow",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     color: Colors.grey[300],
                     fontWeight: FontWeight.bold,
@@ -400,7 +376,7 @@ class BioFighter extends StatelessWidget {
                 margin: EdgeInsets.only(top: 85, left: 2),
                 child: Text(
                   "Raven",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                       fontSize: 18,
                       color: Colors.grey[300],
                       fontWeight: FontWeight.bold),
@@ -420,7 +396,7 @@ class BioFighter extends StatelessWidget {
                 margin: EdgeInsets.only(top: 85, left: 2),
                 child: Text(
                   "Cat Woman",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                       fontSize: 18,
                       color: Colors.grey[300],
                       fontWeight: FontWeight.bold),
@@ -441,7 +417,7 @@ class BioFighter extends StatelessWidget {
                 margin: EdgeInsets.only(top: 65, left: 2),
                 child: Text(
                   "Martian Manhunter",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                       fontSize: 18,
                       color: Colors.grey[300],
                       fontWeight: FontWeight.bold),
@@ -460,23 +436,62 @@ class BioFighter extends StatelessWidget {
               child: Container(
                 //margin: EdgeInsets.only(top: 65, left: 2),
                 child: IconButton(
-                    icon: Icon(
-                      Icons.add_circle_outline,
-                      color: Colors.lightBlueAccent[400],
-                      size: 80,
-                    ),
-                    onPressed: () {
-                      print("Mas Superheroes");
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => AllFighters(),
-                        ),
-                      );
-                    }),
+                  icon: Icon(
+                    Icons.add_circle_outline,
+                    color: Colors.lightBlueAccent[400],
+                    size: 80,
+                  ),
+                  onPressed: () {
+                    print("Más Superheroes");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => AllFighters(),
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget fondoMetas() {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: <Color>[
+            Colors.blueGrey[900],
+            Colors.grey[900],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _fadeText() {
+    return Container(
+      margin: EdgeInsets.only(top: 15),
+      child: SizedBox(
+        width: 600.0,
+        child: TypewriterAnimatedTextKit(
+          repeatForever: true,
+          text: [
+            "SUPERHEROES",
+            "DCpedia",
+            "HEROES",
+            "DC Comics",
+          ],
+          textStyle: GoogleFonts.courierPrime(
+            fontSize: 45.0,
+            color: Colors.amber[50],
+            fontWeight: FontWeight.w600,
+          ),
+          textAlign: TextAlign.center,
+          alignment: AlignmentDirectional.bottomCenter, // or Alignment.topLeft
         ),
       ),
     );
